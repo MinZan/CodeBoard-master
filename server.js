@@ -17,7 +17,7 @@ require('./server/config/routes.js')(app)
 ////////////////////////////////////////////////////////////
 //                     Listen to Port                     //
 ////////////////////////////////////////////////////////////
-var port = 8000;
+var port = 5000;
 var server = app.listen(port, function() {
     console.log("Hey, Listen! (ROOOOM "+port+")");
 })
