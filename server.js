@@ -6,21 +6,6 @@ var express         = require("express");
 var path            = require("path");
 var app             = express();
 
-//adding database
-var pg = require('pg');
-var connectionString = "postgres://eezahufkhcehvb:4kBzebQt7dw8BnRQ9Gcy8BT8zz@ec2-23-21-238-76.compute-1.amazonaws.com:5432/d84hah6pkjcarf"
-
-pg.connect(connectionString, function(err, client, done) {
-   client.query('SELECT * FROM your_table', function(err, result) {
-      done();
-      if(err) return console.error(err);
-      console.log(result.rows);
-   });
-});
-
-
-
-
 //Body Parser && Static Folder
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/client/static"));
