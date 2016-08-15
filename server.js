@@ -8,17 +8,16 @@ var app             = express();
 
 //adding database
 var pg = require('pg');
+var connectionString = "postgres://eezahufkhcehvb:4kBzebQt7dw8BnRQ9Gcy8BT8zz@ec2-23-21-238-76.compute-1.amazonaws.com:5432/d84hah6pkjcarf"
 
 app.get('/db', function (request, response) {
-  pg.connect(process.env.postgres://eezahufkhcehvb:4kBzebQt7dw8BnRQ9Gcy8BT8zz@ec2-23-21-238-76.compute-1.amazonaws.com:5432/d84hah6pkjcarf, function(err, client, done) {
-    client.query('SELECT * FROM test_table', function(err, result) {
+pg.connect(connectionString, function(err, client, done) {
+   client.query('SELECT * FROM your_table', function(err, result) {
       done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.render('pages/db', {results: result.rows} ); }
-    });
-  });
+      if(err) return console.error(err);
+      console.log(result.rows);
+   });
+});
 });
 
 
