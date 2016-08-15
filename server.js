@@ -10,7 +10,6 @@ var app             = express();
 var pg = require('pg');
 var connectionString = "postgres://eezahufkhcehvb:4kBzebQt7dw8BnRQ9Gcy8BT8zz@ec2-23-21-238-76.compute-1.amazonaws.com:5432/d84hah6pkjcarf"
 
-app.get('/db', function (request, response) {
 pg.connect(connectionString, function(err, client, done) {
    client.query('SELECT * FROM your_table', function(err, result) {
       done();
@@ -18,7 +17,7 @@ pg.connect(connectionString, function(err, client, done) {
       console.log(result.rows);
    });
 });
-});
+
 
 
 
